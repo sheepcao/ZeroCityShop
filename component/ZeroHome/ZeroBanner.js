@@ -7,12 +7,14 @@ import {
     Text,
     View,
     Image,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from 'react-native';
 
 
 
 import Swiper from 'react-native-swiper';
+import ZeroWebScene from '../ZeroTool/ZeroWebScene'
 var ImageData = require('../../data.json');
 const {width} = Dimensions.get('window');
 export default class ZeroBanner extends Component {
@@ -57,11 +59,19 @@ export default class ZeroBanner extends Component {
                     {this.state.items.map((item, index) => {
                         console.log(index);
                         return (
+                            <TouchableOpacity
+                                  activeOpacity={1}
+                                  style={styles.container}
+                                  key = {index}
+                                  onPress = {()=>this.click(item.link)}
+                            >
                             <Image style={styles.image}
+
                                    key = {index}
                                    resizeMode='cover'
                                    source={{uri:item.pic}}
-                            />)
+                            />
+                            </TouchableOpacity>)
                     })}
 
                 </Swiper>
@@ -70,22 +80,22 @@ export default class ZeroBanner extends Component {
         );
     }
 
-
+    //调用点击事件
+    click(url){
+        this.props.navigation.navigate('ZeroWebScene',{url:url })
+    }
 
 }
 
 let zoomHeight = (218/375)*width;
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         backgroundColor: '#F5FCFF',
         height:zoomHeight,
         alignItems:'center',
     },
 
     wrapper: {
-        // backgroundColor: 'orange',
-        //height:200,
     },
     image: {
         width:width,

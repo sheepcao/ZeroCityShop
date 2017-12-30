@@ -22,6 +22,7 @@ import {
 
 
 import ZeroBanner from './ZeroBanner'
+import ZeroHomeNavigator from './ZeroHomeNavigator'
 import ZeroConfig from '../ZeroTool/ZeroConfig';
 export default class ZeroHome extends Component {
 
@@ -35,41 +36,37 @@ export default class ZeroHome extends Component {
 
     }
 
-
-
-
-    render() {
-        return (
-           <View style={styles.container}>
-               <Text style={styles.welcome}
-                     onPress = {this.pushViewController}
-               >
-                   首页
-               </Text>
-           </View>
-        );
-    }
-
-
-
-
     /*
+     <View style={styles.container}>
      <Text style={styles.welcome}
      onPress = {this.pushViewController}
      >
      首页
      </Text>
+     </View>
      */
+
+
+    render() {
+        return (
+          <ZeroHomeNavigator/>
+        );
+    }
+
 
     pushViewController(){
         let params =  {
-                title:'第一个试图',
-                user:"豆芽菜",
-                day:'20170-12-21',
-                week:'thursday'
+            title:'第一个试图',
+            user:"豆芽菜",
+            day:'20170-12-21',
+            week:'thursday'
         }
         this.props.navigation.navigate('ZeroBanner',{params:params})
     }
+
+
+
+
 
 }
 
@@ -78,6 +75,7 @@ export default class ZeroHome extends Component {
 //调用点击事件
 const pushViewController = ()=>{
    //AlertIOS.alert('哈哈哈');
+
 }
 
 

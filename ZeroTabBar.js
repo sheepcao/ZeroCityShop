@@ -27,6 +27,7 @@ import ZeroMine from './component/ZeroMine/ZeroMine'
 import ZeroTabBarItem from './ZeroTabBarItem'
 import ZeroColor from './tool/ZeroColor'
 import  ZeroBanner from './component/ZeroHome/ZeroBanner'
+import ZeroWebScene from './component/ZeroTool/ZeroWebScene'
 import { StatusBar } from 'react-native';
 
 function getCurrentRouteName(navigationState) {
@@ -183,13 +184,14 @@ const Navigator = StackNavigator(
     {
         Tab: { screen: Tab },
         ZeroBanner: { screen: ZeroBanner },
-        //GroupPurchase: { screen: GroupPurchaseScene },
+        ZeroWebScene: { screen: ZeroWebScene },
     },
     {
         navigationOptions: {
             headerBackTitle: null,
             headerTintColor: '#333333',
             showIcon: true,
+            headerStyle: { backgroundColor: ZeroColor.theme }
         },
     },
 
