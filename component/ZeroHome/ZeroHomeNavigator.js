@@ -32,7 +32,7 @@ export default class ZeroHomeNavigator extends Component {
                 >
                     <View style={styles.NavScanItem}>
                         <Image
-                            source={require('../../src/Home/scan_icon.png')}
+                            source={require('../../src/Home/scan_icon@2x.png')}
                             style={styles.NavScanIcon}
                         />
                     </View>
@@ -47,7 +47,7 @@ export default class ZeroHomeNavigator extends Component {
                     <View style={styles.NavSearch}>
 
                         <Image
-                            source={require('../../src/Home/search.png')}
+                            source={require('../../src/Home/search@2x.png')}
                             style={styles.NavSearchIcon}
                         />
                         <Text style={styles.NavViewTitleStyle}
@@ -62,7 +62,7 @@ export default class ZeroHomeNavigator extends Component {
                 >
                     <View style={styles.NavNewItem}>
                         <Image
-                            source={require('../../src/Home/news.png')}
+                            source={require('../../src/Home/news@2x.png')}
                             style={styles.NavScanIcon}
                         />
                     </View>
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
         left:-8
     },
     NavScanIcon:{
-        height:30,
-        width:30,
+        height:25,
+        width:25,
     },
     NavNewItem:{
         height:30,

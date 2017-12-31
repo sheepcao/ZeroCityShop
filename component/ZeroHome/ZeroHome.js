@@ -53,10 +53,11 @@ export default class ZeroHome extends Component {
                 />
 
                 <View style={styles.backToTop}>
-                    {/*<Image*/}
-                        {/*source={require('../../src/Home/Icon_BackToTop.png')}*/}
-                        {/*style={styles.backToTop}*/}
-                    {/*/>*/}
+                    <Image
+                        source={require('../../src/Home/Icon_BackToTop@2x.png')}
+                        style={styles.backToImage}
+
+                    />
                 </View>
 
 
@@ -196,16 +197,18 @@ const styles = StyleSheet.create({
     },
 
     backToTop:{
-        backgroundColor:'red',
+        // backgroundColor:'red',
         width:50,
         height:50,
         position:'absolute',
         right:30,
         bottom:100,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     backToImage:{
-        width:50,
-        height:50,
+        width:30,
+        height:30,
     }
 });
 
