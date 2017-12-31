@@ -15,56 +15,129 @@ import {
     Image,
     TouchableOpacity,
     Dimensions,
-
 } from 'react-native';
 
 
 
-
+const {width,height} = Dimensions.get('window');
 import ZeroBanner from './ZeroBanner'
 import ZeroHomeNavigator from './ZeroHomeNavigator'
 import ZeroConfig from '../ZeroTool/ZeroConfig';
-export default class ZeroHome extends Component {
+import ZeroWebScene from '../ZeroTool/ZeroWebScene';
+import ZeroSpaceView from '../ZeroTool/ZeroSpaceView';
 
+export default class ZeroHome extends Component {
 
     constructor(props){
         super(props);
-        this.pushViewController= this.pushViewController.bind(this);
-        // this.state={
-        //     base_Url:'https://portal-web.cjwsc.com/home/topBanner.action'
-        // }
-
+        this.state={
+            dataSource:new ListView.DataSource({
+                rowHasChanged:(r1,r2) => r1!==r2
+            }),
+        }
     }
 
-    /*
-     <View style={styles.container}>
-     <Text style={styles.welcome}
-     onPress = {this.pushViewController}
-     >
-     首页
-     </Text>
-     </View>
-     */
 
 
     render() {
         return (
-          <ZeroHomeNavigator/>
+
+            <View>
+
+                <ZeroHomeNavigator/>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderRow}
+                    renderHeader={() => this.renderHeader()}
+                    contentContainerStyle={styles.listViewStyle}//设置cell的样式
+                />
+
+                <View style={styles.backToTop}>
+                    {/*<Image*/}
+                        {/*source={require('../../src/Home/Icon_BackToTop.png')}*/}
+                        {/*style={styles.backToTop}*/}
+                    {/*/>*/}
+                </View>
+
+
+
+            </View>
+
         );
     }
 
 
-    pushViewController(){
-        let params =  {
-            title:'第一个试图',
-            user:"豆芽菜",
-            day:'20170-12-21',
-            week:'thursday'
-        }
-        this.props.navigation.navigate('ZeroBanner',{params:params})
+
+
+    renderHeader() {
+        return (
+            <View>
+                <ZeroBanner onGridSelected={(url) => this.onGridSelected(url)}/>
+            </View>
+        )
+    }
+
+    renderRow(rowData,sectionID,rowID,highlightRow){
+        return(
+            <View style={styles.bgStyle}>
+                <Image style={styles.imageStyle}
+                       source={{uri:rowData.pic}}
+                />
+                <Text style={styles.describe}
+                      numberOfLines={2}
+                >
+                    {rowData.name}
+                </Text>
+                <Text style={styles.price}
+                >
+                    ¥:{rowData.price}
+                </Text>
+            </View>
+        );
+
     }
 
 
+    //发送网络请求
+    componentDidMount(){
+        this.requestNetwork();
+    }
+
+    requestNetwork(){
+        fetch(ZeroConfig.api.homeHotCommendGoods_URL)
+            .then((response)=>response.json())
+            .then((responseJson)=>{
+            let items = [];
+            let {lists} = responseJson.data;
+                lists.map(
+                    (info)=>{
+                            let productList = info.productList;
+                            productList.map(
+                                (object)=>{
+                                    // console.log(object);
+                                    items.push(object);
+                                }
+                            )
+                     }
+                  )
+
+                    //刷新界面数据
+                this.setState({
+                        dataSource:this.state.dataSource.cloneWithRows(items)
+                    })
+             }
+
+            ).catch(
+            (error)=>{
+                console.log('错误信息'+error);
+            }
+        )
+    }
+
+
+    onGridSelected(url:string) {
+        this.props.navigation.navigate('ZeroWebScene',{url:url })
+    }
 
 
 
@@ -78,19 +151,62 @@ const pushViewController = ()=>{
 
 }
 
-
+//345 × 345
+let zoomWidth = (width-30)/2;
+let imgHeight = 345*0.5;
+let imgWidth = 345*0.5;
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+    listViewStyle:{
+        flexDirection:'row', //设置横向布局
+        flexWrap:'wrap'    //设置换行显示
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    bgStyle:{
+        backgroundColor:'white',
+        width:zoomWidth, //cell的宽度
+        height:250,
+        marginLeft:10,
+        marginTop:10,
+        borderRadius:5,
+        borderWidth: 1,
+        borderColor: 'transparent',
     },
+    imageStyle:{
+        width:imgWidth,
+        height:imgHeight,
+        // marginBottom:0,
+        marginTop:0,
+    },
+    describe:{
+        fontSize:15,
+        // marginBottom:0
+        marginTop:0,
+        marginRight:5,
+        marginLeft:5,
+    },
+    price:{
+        fontSize:14,
+        marginTop:10,
+        marginRight:5,
+        marginLeft:5,
+        color:'#ff8e4a',
+        // fontWeight:('normal'),
+         fontWeight:('bold','900'),
+        // 字符间距
+        letterSpacing:0
+    },
+
+    backToTop:{
+        backgroundColor:'red',
+        width:50,
+        height:50,
+        position:'absolute',
+        right:30,
+        bottom:100,
+    },
+    backToImage:{
+        width:50,
+        height:50,
+    }
 });
 
 

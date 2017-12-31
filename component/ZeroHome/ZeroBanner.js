@@ -14,7 +14,6 @@ import {
 
 
 import Swiper from 'react-native-swiper';
-import ZeroWebScene from '../ZeroTool/ZeroWebScene'
 var ImageData = require('../../data.json');
 const {width} = Dimensions.get('window');
 export default class ZeroBanner extends Component {
@@ -45,7 +44,7 @@ export default class ZeroBanner extends Component {
         return (
             <View style={styles.container} >
                 <Swiper style={styles.wrapper}
-                        autoplayTimeout={3} //每隔4秒切换
+                        autoplayTimeout={5} //每隔4秒切换
                         autoplay={true}   //自动轮播
                         showsPagination={true}
                         //滚动方向
@@ -63,7 +62,8 @@ export default class ZeroBanner extends Component {
                                   activeOpacity={1}
                                   style={styles.container}
                                   key = {index}
-                                  onPress = {()=>this.click(item.link)}
+                                  onPress = {() => this.props.onGridSelected(item.link)}
+                                  //()=>this.click(item.link)
                             >
                             <Image style={styles.image}
 
@@ -80,10 +80,7 @@ export default class ZeroBanner extends Component {
         );
     }
 
-    //调用点击事件
-    click(url){
-        this.props.navigation.navigate('ZeroWebScene',{url:url })
-    }
+
 
 }
 

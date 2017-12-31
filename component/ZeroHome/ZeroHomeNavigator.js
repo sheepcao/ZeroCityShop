@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     NavViewStyle:{
         height:64,
         backgroundColor: '#ff8e4a',
-        //左右剧中
+        //左右剧中clearColor #ff8e4a
         justifyContent: 'center',
         alignItems: 'center',
         //横向显示
