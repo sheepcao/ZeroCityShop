@@ -15,6 +15,7 @@ import {
     Image,
     TouchableOpacity,
     Dimensions,
+    ScrollView,
 } from 'react-native';
 
 
@@ -34,6 +35,8 @@ export default class ZeroHome extends Component {
             dataSource:new ListView.DataSource({
                 rowHasChanged:(r1,r2) => r1!==r2
             }),
+            //暂停
+            paused: false,
         }
     }
 
@@ -50,19 +53,29 @@ export default class ZeroHome extends Component {
                     renderRow={this.renderRow}
                     renderHeader={() => this.renderHeader()}
                     contentContainerStyle={styles.listViewStyle}//设置cell的样式
+                    ref={(listView) => { _listView = listView }}
+                    onScroll={() =>this.scrollViewDidScroll() }
                 />
 
+
+                <TouchableOpacity
+                    activeOpacity={1}
+                    onPress = {()=>this.backToTop()}>
                 <View style={styles.backToTop}>
-                    <Image
-                        source={require('../../src/Home/Icon_BackToTop@2x.png')}
-                        style={styles.backToImage}
+                    {
+                        this.state.paused? <Image
+                            source={require('../../src/Home/search@2x.png')}
+                            style={styles.backToImage}
+                        />:null
 
-                    />
+                    }
+
                 </View>
-
-
+                </TouchableOpacity>
 
             </View>
+
+
 
         );
     }
@@ -140,8 +153,14 @@ export default class ZeroHome extends Component {
         this.props.navigation.navigate('ZeroWebScene',{url:url })
     }
 
+    backToTop(){
+        // alert('发布会');
+        {_listView.scrollTo({y: 0});}
+    }
 
+    scrollViewDidScroll(){
 
+    }
 }
 
 

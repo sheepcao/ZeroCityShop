@@ -9,15 +9,22 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+
 } from 'react-native';
 
 export default class ZeroSales extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        title: '特卖',
+        headerStyle: { backgroundColor: 'white' },
+    })
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                   特卖
+                    购物车页面
                 </Text>
             </View>
         );

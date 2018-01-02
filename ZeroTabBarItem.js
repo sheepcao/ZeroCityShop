@@ -13,7 +13,7 @@ import {
     Image
 } from 'react-native';
 
-export default class ZeroCategory extends Component {
+export default class ZeroTabBarItem extends Component {
     render() {
         let  selectedImage = this.props.selectedImage ? this.props.selectedImage : this.props.normalImage
 

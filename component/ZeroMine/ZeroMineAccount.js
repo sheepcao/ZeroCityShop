@@ -12,11 +12,13 @@ import {
     View
 } from 'react-native';
 
-export default class ZeroSpaceView extends Component {
+export default class ZeroMineAccount extends Component {
     render() {
         return (
             <View style={styles.container}>
-
+                <Text style={styles.welcome}>
+                    我的账户
+                </Text>
             </View>
         );
     }
@@ -24,9 +26,15 @@ export default class ZeroSpaceView extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 10,
-        // backgroundColor:'#f3f3f3',
-        // backgroundColor:'orange',
+
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        height: 200,
+    },
+    welcome: {
+        textAlign: 'center',
+        margin: 10,
     },
 });
 

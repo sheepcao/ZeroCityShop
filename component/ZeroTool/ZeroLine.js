@@ -12,7 +12,7 @@ import {
     View
 } from 'react-native';
 
-export default class ZeroSpaceView extends Component {
+export default class ZeroLine extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -24,9 +24,9 @@ export default class ZeroSpaceView extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 10,
-        // backgroundColor:'#f3f3f3',
-        // backgroundColor:'orange',
+         height: 0.5,
+         backgroundColor:'#e3e5e9',
+        // backgroundColor:'red',
     },
 });
 

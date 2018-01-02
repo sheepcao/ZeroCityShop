@@ -106,20 +106,20 @@ const Tab = TabNavigator(
                  )
              }),
          },
-         Category:{
-            screen:ZeroCategory,
-            navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '分类',
-                tabBarIcon: ({ focused, tintColor }) => (
-                    <ZeroTabBarItem
-                        tintColor={tintColor}
-                        focused={focused}
-                        normalImage={{uri:'category_Normal'}}
-                        selectedImage={{uri:'category_Selected'}}
-                    />
-                )
-            }),
-        },
+        //  Category:{
+        //     screen:ZeroCategory,
+        //     navigationOptions: ({ navigation }) => ({
+        //         tabBarLabel: '分类',
+        //         tabBarIcon: ({ focused, tintColor }) => (
+        //             <ZeroTabBarItem
+        //                 tintColor={tintColor}
+        //                 focused={focused}
+        //                 normalImage={{uri:'category_Normal'}}
+        //                 selectedImage={{uri:'category_Selected'}}
+        //             />
+        //         )
+        //     }),
+        // },
          Sales:{
             screen:ZeroSales,
             navigationOptions: ({ navigation }) => ({
@@ -151,7 +151,7 @@ const Tab = TabNavigator(
          Mine:{
             screen:ZeroMine,
             navigationOptions: ({ navigation }) => ({
-                tabBarLabel: '我的',
+                tabBarLabel: '我的账户',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <ZeroTabBarItem
                         tintColor={tintColor}
