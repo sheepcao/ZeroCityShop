@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
         //横向显示
         flexDirection:"row",
-        // justifyContent: 'space-between',
+        // justifyContent: 'flex-end',
         justifyContent: 'space-around',
     },
 

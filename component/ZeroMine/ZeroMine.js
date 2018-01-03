@@ -77,11 +77,15 @@ export default class ZeroMine extends Component {
 
     }
 
+    onTouchableOpacity(index) {
+        alert('点击头像'+index);
+    }
+
     renderHeader() {
         return (
 
             <View >
-                <ZeroMineAccount/>
+                <ZeroMineAccount  onTouchableOpacity={(index) => this.onTouchableOpacity(index)}/>
                 <ZeroSpaceView/>
                 <ZeroShare/>
                 <ZeroSpaceView/>
