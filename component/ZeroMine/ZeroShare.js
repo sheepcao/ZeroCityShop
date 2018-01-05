@@ -37,6 +37,7 @@ export default class ZeroShare extends Component {
                 automaticallyAdjustContentInsets={true}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderRow}
+                removeClippedSubviews={false}
             />
         );
     }

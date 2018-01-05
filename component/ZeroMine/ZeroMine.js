@@ -69,6 +69,7 @@ export default class ZeroMine extends Component {
                 contentContainerStyle={styles.listViewStyle}//设置cell的样式
                 ref={(listView) => { _listView = listView }}
                 onScroll={() =>this.scrollViewDidScroll() }
+                removeClippedSubviews={false}
             />
         );
     }

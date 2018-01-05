@@ -45,16 +45,18 @@ export default class ZeroHome extends Component {
     render() {
         return (
 
-            <View>
+            <View style={styles.container}>
 
                 <ZeroHomeNavigator/>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow}
+                    //renderFooter={this.renderFooter}
                     renderHeader={() => this.renderHeader()}
                     contentContainerStyle={styles.listViewStyle}//设置cell的样式
                     ref={(listView) => { _listView = listView }}
                     onScroll={() =>this.scrollViewDidScroll() }
+                    removeClippedSubviews={false}
                 />
 
 
@@ -62,17 +64,15 @@ export default class ZeroHome extends Component {
                     activeOpacity={1}
                     onPress = {()=>this.backToTop()}>
                 <View style={styles.backToTop}>
-                    {
-                        this.state.paused? <Image
-                            source={require('../../src/Home/search@2x.png')}
-                            style={styles.backToImage}
-                        />:null
-
-                    }
-
+                    {/*<Image*/}
+                        {/*source={require('../../src/Home/search@2x.png')}*/}
+                        {/*style={styles.backToImage}*/}
+                    {/*/>*/}
                 </View>
                 </TouchableOpacity>
+                <View style={styles.footerStyles}>
 
+                </View>
             </View>
 
 
@@ -91,6 +91,12 @@ export default class ZeroHome extends Component {
         )
     }
 
+    // renderFooter(){
+    //     return (
+    //         <View>
+    //         </View>
+    //     )
+    // }
     renderRow(rowData,sectionID,rowID,highlightRow){
         return(
             <View style={styles.bgStyle}>
@@ -176,6 +182,9 @@ let zoomWidth = (width-30)/2;
 let imgHeight = 345*0.5;
 let imgWidth = 345*0.5;
 const styles = StyleSheet.create({
+    container:{
+      height:height-50,
+    },
     listViewStyle:{
         flexDirection:'row', //设置横向布局
         flexWrap:'wrap'    //设置换行显示
@@ -228,7 +237,11 @@ const styles = StyleSheet.create({
     backToImage:{
         width:30,
         height:30,
-    }
+    },
+    renderFooterStyle: {
+        height:49,
+        backgroundColor:'red',
+    },
 });
 
 

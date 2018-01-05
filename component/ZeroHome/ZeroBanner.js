@@ -17,15 +17,29 @@ import Swiper from 'react-native-swiper';
 var ImageData = require('../../data.json');
 const {width} = Dimensions.get('window');
 export default class ZeroBanner extends Component {
+
+
+
+
+
     //声明变量
     constructor(props){
         super(props);
         this.state = {
-            items:[]
+            items:[],
+            swiperShow:false,
         }
 
     }
+
+
     componentDidMount() {
+        setTimeout(()=>{
+            this.setState({
+                swiperShow:true
+            });
+        },0);
+
         let items = ImageData.data.map(
             (info)=>{
                 return {
@@ -34,14 +48,15 @@ export default class ZeroBanner extends Component {
                 }
             }
         )
-        console.log('获取数据'+items);
+        //console.log('获取数据'+items);
         this.setState({
             items:items
         })
     }
 
     render() {
-        return (
+        if(this.state.swiperShow){
+            return (
             <View style={styles.container} >
                 <Swiper style={styles.wrapper}
                         autoplayTimeout={5} //每隔4秒切换
@@ -78,6 +93,13 @@ export default class ZeroBanner extends Component {
             </View>
 
         );
+        }else {
+            return (
+                <View style={{height:200}}>
+                    <Image source={ require('../../src/Home/banner.jpg')} style={styles.bannerImg} />
+                </View>
+            );
+        }
     }
 
 
@@ -120,6 +142,11 @@ const styles = StyleSheet.create({
         marginRight: 5,
         marginTop: 5,
         marginBottom: 5,
+    },
+    bannerImg: {
+        width: '100%',
+        height: 200,
+        // flex: 1
     }
 
 });
