@@ -17,6 +17,10 @@ import {
 
 } from 'react-native';
 
+//第一种引用iOS关键代码
+var { NativeModules } = require('react-native');
+var  RNBridgeModule = NativeModules.RNBridgeModule;
+
 
 import  ZeroNavigationItem from '../../ZeroNavigationItem'
 import ZeroConfig from '../ZeroTool/ZeroConfig';
@@ -76,10 +80,15 @@ export default class ZeroMine extends Component {
 
     scrollViewDidScroll(){
 
+
     }
 
+
     onTouchableOpacity(index) {
-        alert('点击头像'+index);
+        //alert('弹出分享框'+index);
+        RNBridgeModule.RNOpenVC('弹出分享框');
+        //RCTZeroShar.RNOpenVC('弹出分享框');
+
     }
 
     renderHeader() {

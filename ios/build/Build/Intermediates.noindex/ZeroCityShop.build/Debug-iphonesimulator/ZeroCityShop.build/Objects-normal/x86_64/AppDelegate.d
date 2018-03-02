@@ -1,12 +1,12 @@
 dependencies: \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/ZeroCityShop/AppDelegate.m \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/ZeroCityShop/AppDelegate.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/chenmeian/Documents/React\ Native学习/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/smellzero/Documents/ZeroCityShop/ios/ZeroCityShop/AppDelegate.m \
+  /Users/smellzero/Documents/ZeroCityShop/ios/ZeroCityShop/AppDelegate.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/smellzero/Documents/ZeroCityShop/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h

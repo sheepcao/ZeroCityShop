@@ -20,7 +20,7 @@ import {
 
 
 import ZeroHome from './component/ZeroHome/ZeroHome'
-import ZeroCategory from './component/ZeroCategory/ZeroCategory'
+//import ZeroCategory from './component/ZeroCategory/ZeroCategory'
 import ZeroSales from './component/ZeroSales/ZeroSales'
 import ZeroCar from './component/ZeroCar/ZeroCar'
 import ZeroMine from './component/ZeroMine/ZeroMine'
